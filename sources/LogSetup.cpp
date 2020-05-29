@@ -14,7 +14,8 @@ void LogSetup::init()
         boost::log::trivial::severity_level,
         char
     >("Severity");
-    static const std::string format = "[%TimeStamp%][%ThreadID%][%Severity%]: %Message%";
+    static const std::string format =
+            "[%TimeStamp%][%ThreadID%][%Severity%]: %Message%";
 
     auto sinkFile = boost::log::add_file_log(
         boost::log::keywords::file_name = ".build/logs/log_%N.log",
@@ -22,7 +23,8 @@ void LogSetup::init()
         boost::log::keywords::auto_flush = true,
         boost::log::keywords::format = format);
     sinkFile->set_filter(
-        boost::log::trivial::severity >= boost::log::trivial::trace);          // Log file setup
+        boost::log::trivial::severity >=
+            boost::log::trivial::trace);// Log file setup
 
     // From config to boost enum
     static const boost::unordered_map<std::string,
@@ -37,7 +39,8 @@ void LogSetup::init()
         std::cout,
         boost::log::keywords::format = format);
     sinkConsole->set_filter(
-        boost::log::trivial::severity >= CONSOLE_FILTER.at(Settings::logLevel));      // Log console setup
+        boost::log::trivial::severity >=
+            CONSOLE_FILTER.at(Settings::logLevel));// Log console setup
 
     boost::log::add_common_attributes();
 }
