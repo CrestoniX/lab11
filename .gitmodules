@@ -4,3 +4,6 @@
 [submodule "vendor/boost-process"]
 	path = vendor/boost-process
 	url = https://github.com/klemens-morgenstern/boost-process.git
+[submodule "tools/polly"]
+	path = tools/polly
+	url = https://github.com/ruslo/polly.git
