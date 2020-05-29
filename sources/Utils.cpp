@@ -1,3 +1,4 @@
+// Copyright 2020 <CrestoniX>
 #include <iostream>
 #include <boost/program_options.hpp>
 #include <boost/program_options/parsers.hpp>
@@ -16,10 +17,12 @@ int programArguments(int argc, char **argv)
     options::options_description visibleOptions("Available options");
     visibleOptions.add_options()
         ("log-level",
-         options::value<std::string>(&Settings::logLevel)->default_value("info"),
+         options::value<std::string>
+                 (&Settings::logLevel)->default_value("info"),
          "info, warning or error")
         ("config",
-         options::value<std::string>(&Settings::buildConfig)->default_value("Debug"),
+         options::value<std::string>
+                 (&Settings::buildConfig)->default_value("Debug"),
          "DCMAKE_BUILD_TYPE")
         ("install",
          "Add install step")
@@ -31,7 +34,8 @@ int programArguments(int argc, char **argv)
         ("help", "Prints help message");
 
     options::variables_map variablesMap;
-    options::store(options::parse_command_line(argc, argv, visibleOptions), variablesMap);
+    options::store(options::parse_command_line
+        (argc, argv, visibleOptions), variablesMap);
     options::notify(variablesMap);
 
     if (variablesMap.count("help")) {

@@ -1,3 +1,4 @@
+// Copyright 2020 <CrestoniX>
 #include "Command.h"
 #include "Settings.h"
 

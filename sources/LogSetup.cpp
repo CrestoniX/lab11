@@ -1,3 +1,4 @@
+// Copyright 2020 <CrestoniX>
 #include "LogSetup.h"
 
 #include <boost/log/sinks.hpp>
@@ -19,14 +20,13 @@ void LogSetup::init()
         boost::log::keywords::file_name = ".build/logs/log_%N.log",
         boost::log::keywords::rotation_size = 128 * 1024 * 1024,
         boost::log::keywords::auto_flush = true,
-        boost::log::keywords::format = format
-    );
+        boost::log::keywords::format = format);
     sinkFile->set_filter(
-        boost::log::trivial::severity >= boost::log::trivial::trace
-    );          // Log file setup
+        boost::log::trivial::severity >= boost::log::trivial::trace);          // Log file setup
 
     // From config to boost enum
-    static const boost::unordered_map<std::string, boost::log::trivial::severity_level> CONSOLE_FILTER = {
+    static const boost::unordered_map<std::string,
+        boost::log::trivial::severity_level> CONSOLE_FILTER = {
         {"debug", boost::log::trivial::debug},
         {"info", boost::log::trivial::info},
         {"warning", boost::log::trivial::warning},
@@ -35,11 +35,9 @@ void LogSetup::init()
 
     auto sinkConsole = boost::log::add_console_log(
         std::cout,
-        boost::log::keywords::format = format
-    );
+        boost::log::keywords::format = format);
     sinkConsole->set_filter(
-        boost::log::trivial::severity >= CONSOLE_FILTER.at(Settings::logLevel)
-    );      // Log console setup
+        boost::log::trivial::severity >= CONSOLE_FILTER.at(Settings::logLevel));      // Log console setup
 
     boost::log::add_common_attributes();
 }

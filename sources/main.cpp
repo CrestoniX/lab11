@@ -1,3 +1,4 @@
+// Copyright 2020 <CrestoniX>
 #include <async++.h>
 #include <memory>
 #include <boost/process.hpp>
@@ -15,8 +16,6 @@
 void startProcess(const Command::ArgList &commandArgs,
         std::unique_ptr<ThreadData> &data)
 {
-
-
     if (data && data->isTerminated) {
         return;
     }
