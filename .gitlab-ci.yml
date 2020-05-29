@@ -1,0 +1,8 @@
+image: toliak/bootstrap-cpp
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+compile:          # if not using tests
+  script:
+    - ./scripts/compile.sh
