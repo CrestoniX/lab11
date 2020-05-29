@@ -46,7 +46,7 @@ add_executable(
   ${PROJECT_NAME}
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/main.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/Command.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/Settings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/sources1/Settings.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/LogSetup.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/Timer.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/sources/Utils.cpp
